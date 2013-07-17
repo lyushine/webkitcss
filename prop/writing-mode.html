@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Ctrip css webkit library - -webkit-mask-clip</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+	<link rel="stylesheet" href="../zTreeStyle/zTreeStyle.css">
+	<script type="text/javascript" src="../js/jquery.ztree.core-3.5.min.js"></script>
+	<script type="text/javascript" src="../js/data.js"></script>
+
+</head>
+<body>
+<div class="head">
+	<div class="wrap">
+		<a href="../index.html" class="logo">Ctrip UED webkit library</a>
+		<div class="nav">
+			<ul>
+				<li><a href="../index.html">首页</a></li>
+				<li><a href="../quicksearch.html">属性速查</a></li>
+				<li><a href="../advice.html">建议反馈</a></li>
+				<li><a href="../aboutus.html">关于我们</a></li>
+				<li><a href="http://ued.ctrip.com">CtripUED 博客</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="wrap">
+	<div class="side">
+		<div class="filter_box">
+			<div class="field" id="catalogFilter">
+
+					<input type="search" id="key" placeholder="属性搜索...">
+					<div class="cscs"style="display:none;">
+						<input type="radio" id="name" name="keyType" class="radio first" checked=""><span>name (string)</span><br>
+						<input type="radio" id="level" name="keyType" class="radio" style="margin-left:68px;">
+						<input type="radio" id="id" name="keyType" class="radio" style="margin-left:68px;">
+						<input type="radio" id="getNodeByParam" name="funType" class="radio first">
+						<input type="radio" id="getNodesByParam" name="funType" class="radio" style="margin-left:36px;">
+						<input type="radio" id="getNodesByParamFuzzy" name="funType" class="radio" style="margin-left:36px;" checked="">
+						<input type="radio" id="getNodesByFilter" name="funType" class="radio" style="margin-left:36px;">
+					</div>
+			</div>
+		</div>
+		<div class="categorys">
+			<ul class="ztree file_tree" id="catalog">
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="main" id="main">
+		<div class="position" id="position">
+			您的位置: <a href="../index.html">首页</a> &gt; <a href="../quicksearch.html">属性速查</a> &gt; <a href="#">-webkit-writing-mode</a>
+		</div>
+		<!-- /position -->
+		<div class="prop_intro">
+			<div class="tit">
+			<h1>-webkit-writing-mode 属性</h1>
+				<!-- <div id="bdshare" class="bdshare_b" style="line-height: 12px;">
+				<img src="http://bdimg.share.baidu.com/static/images/type-button-1.jpg?cdnversion=20120831" />
+				<a class="shareCount"></a>
+				</div>
+				<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=1545623" ></script>
+				<script type="text/javascript" id="bdshell_js"></script>
+				<script type="text/javascript">
+				document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000); 
+				</script> -->
+				<!-- Baidu Button END -->
+			</div>
+			<div class="prop_comp">
+				<big>浏览器支持</big>
+				<p>
+					<b>-webkit-writing-mode:</b>
+					<i class="ico_browser browserIconSA_22_no"></i>
+					<i class="ico_browser browserIconCH_22"><small>5.1+</small></i>
+				</p>
+			</div>
+			<!-- /prop_comp -->
+			<div class="prop_detail">
+				设置或检索对象的内容块固有的书写方向。
+			</div>
+			<!-- /prop_detail -->
+			<!-- Baidu Button BEGIN -->
+			<!-- Baidu Button BEGIN -->
+			
+		</div>
+		<!-- /prop_intro -->
+		<div class="mod prop_gramm">
+			<h2 class="mod_tit">语法</h2>
+			<p class="mod_con">
+				<strong>-webkit-writing-mode:</strong> horizontal-tb | vertical-rl |  vertical-lr | lr-tb | tb-rl
+			</p>
+		</div>
+		<!-- /prop_gramm -->
+		<div class="mod prop_value">
+			<h2 class="mod_tit">取值</h2>
+			<div class="mod_con">
+				<table>
+					<tr>
+						<th>horizontal-tb</th>
+						<td>水平方向自上而下的书写方式。即 left-right-top-bottom（类似IE私有值lr-tb）</td>
+					</tr>
+					<tr>
+						<th>vertical-rl</th>
+						<td>垂直方向自右而左的书写方式。即 top-bottom-right-left（类似IE私有值tb-rl）</td>
+					</tr>
+					<tr>
+						<th>vertical-lr</th>
+						<td>垂直方向自左而右的书写方式。即 top-bottom-left-right</td>
+					</tr>
+					<tr>
+						<th>lr-tb</th>
+						<td>左-右，上-下。对象中的内容在水平方向上从左向右流入，后一行在前一行的下面。 所有的字形都是竖直向上的。这种布局是罗马语系使用的（IE）</td>
+					</tr>
+					<tr>
+						<th>tb-rl</th>
+						<td>上-下，右-左。对象中的内容在垂直方向上从上向下流入，自右向左。后一竖行在前一竖行的左面。全角字符是竖直向上的，半角字符如拉丁字母或片假名顺时针旋转90度。这种布局是东亚语系通常使用的（IE）</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- /prop_value -->
+		<div class="mod prop_demo">
+			<h2 class="mod_tit">示例</h2>
+			<div class="mod_con">
+				<iframe id="iframedemo"style="border:1px solid #ddd;" src="../demo/writing-mode.html" width="100%" height="200" frameborder="0"></iframe id="test">
+				<div class="btns">
+					<a href="../demo/writing-mode.html" target="_blank" class="btn_primary">演示</a>
+					<a id="viewCode" href="view-source:http://ued.ctrip.com/blog/wp-content/webkitcss/demo/writing-mode.html" target="_blank" class="btn">源码</a>
+					<script type="text/javascript">
+						window.onload = function(){
+							var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+							var isChrome = userAgent.indexOf("Chrome") > -1 ; //判断是否Chrome
+							viewCode.onclick = function(){
+								if(!isChrome){
+									alert("该浏览器不支持查看源码，请使用chrome或自行查看代码");
+									return false;
+								}
+							}
+						}
+					</script>
+				</div>
+
+			</div>
+		</div>
+		<!-- /prop_demo -->
+	</div>
+	<!-- /main -->
+</div>
+<!-- /wrap -->
+</body>
+</html>

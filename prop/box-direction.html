@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Ctrip css webkit library - -webkit-box-direction</title>
+	<link rel="stylesheet" href="../css/base.css">
+	<script type="text/javascript" src="../js/jquery-1.4.4.min.js"></script>
+	<link rel="stylesheet" href="../zTreeStyle/zTreeStyle.css">
+	<script type="text/javascript" src="../js/jquery.ztree.core-3.5.min.js"></script>
+	<script type="text/javascript" src="../js/data.js"></script>
+
+</head>
+<body>
+<div class="head">
+	<div class="wrap">
+		<a href="../index.html" class="logo">Ctrip UED webkit library</a>
+		<div class="nav">
+			<ul>
+				<li><a href="../index.html">首页</a></li>
+				<li><a href="../quicksearch.html">属性速查</a></li>
+				<li><a href="../advice.html">建议反馈</a></li>
+				<li><a href="../aboutus.html">关于我们</a></li>
+				<li><a href="http://ued.ctrip.com">CtripUED 博客</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="wrap">
+	<div class="side">
+		<div class="filter_box">
+			<div class="field" id="catalogFilter">
+
+					<input type="search" id="key" placeholder="属性搜索...">
+					<div class="cscs"style="display:none;">
+						<input type="radio" id="name" name="keyType" class="radio first" checked=""><span>name (string)</span><br>
+						<input type="radio" id="level" name="keyType" class="radio" style="margin-left:68px;">
+						<input type="radio" id="id" name="keyType" class="radio" style="margin-left:68px;">
+						<input type="radio" id="getNodeByParam" name="funType" class="radio first">
+						<input type="radio" id="getNodesByParam" name="funType" class="radio" style="margin-left:36px;">
+						<input type="radio" id="getNodesByParamFuzzy" name="funType" class="radio" style="margin-left:36px;" checked="">
+						<input type="radio" id="getNodesByFilter" name="funType" class="radio" style="margin-left:36px;">
+					</div>
+			</div>
+		</div>
+		<div class="categorys">
+			<ul class="ztree file_tree" id="catalog">
+				
+			</ul>
+		</div>
+	</div>
+
+	<div class="main" id="main">
+		<div class="position" id="position">
+			您的位置: <a href="../index.html">首页</a> &gt; <a href="../quicksearch.html">属性速查</a> &gt; <a href="box-direction.html">-webkit-box-direction</a>
+		</div>
+		<!-- /position -->
+		<div class="prop_intro">
+			<div class="tit">
+			<h1>-webkit-box-align 属性</h1>
+				<!-- <div id="bdshare" class="bdshare_b" style="line-height: 12px;">
+				<img src="http://bdimg.share.baidu.com/static/images/type-button-1.jpg?cdnversion=20120831" />
+				<a class="shareCount"></a>
+				</div>
+				<script type="text/javascript" id="bdshare_js" data="type=button&amp;uid=1545623" ></script>
+				<script type="text/javascript" id="bdshell_js"></script>
+				<script type="text/javascript">
+				document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000); 
+				</script> -->
+				<!-- Baidu Button END -->
+			</div>
+			<div class="prop_comp">
+				<big>浏览器支持</big>
+				<p>
+					<b>-webkit-box-align:</b>
+					<i class="ico_browser browserIconSA_22_no"></i>
+					<i class="ico_browser browserIconCH_22"><small>5.1+</small></i>
+				</p>
+			</div>
+			<!-- /prop_comp -->
+			<div class="prop_detail">
+				设置或检索弹性盒模型对象的子元素的排列顺序是否反转。<br />
+				对应的脚本特性为boxDirection。
+			</div>
+			<!-- /prop_detail -->
+			<!-- Baidu Button BEGIN -->
+			<!-- Baidu Button BEGIN -->
+			
+		</div>
+		<!-- /prop_intro -->
+		<div class="mod prop_gramm">
+			<h2 class="mod_tit">语法</h2>
+			<p class="mod_con">
+				<strong>-webkit-box-direction:</strong>normal | reverse
+			</p>
+		</div>
+		<!-- /prop_gramm -->
+		<div class="mod prop_value">
+			<h2 class="mod_tit">取值</h2>
+			<div class="mod_con">
+				<table>
+					<tr>
+						<th>normal</th>
+						<td>设置弹性盒模型对象的子元素按正常顺序排列。此值为默认值</td>
+					</tr>
+					<tr>
+						<th>reverse</th>
+						<td>反转弹性盒模型对象的子元素的排列顺序</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- /prop_value -->
+		<div class="mod prop_demo">
+			<h2 class="mod_tit">示例</h2>
+			<div class="mod_con">
+				<iframe id="iframedemo" style="border:1px solid #ddd;" src="../demo/box-direction.html" width="100%" height="200" frameborder="0"></iframe >
+				<div class="btns">
+					<a href="../demo/box-direction.html" target="_blank" class="btn_primary">演示</a>
+					<a id="viewCode" href="view-source:http://ued.ctrip.com/blog/wp-content/webkitcss/demo/box-direction.html" target="_blank" class="btn">源码</a>
+					<script type="text/javascript">
+						window.onload = function(){
+							var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+							var isChrome = userAgent.indexOf("Chrome") > -1 ; //判断是否Chrome
+							viewCode.onclick = function(){
+								if(!isChrome){
+									alert("该浏览器不支持查看源码，请使用chrome或自行查看代码");
+									return false;
+								}
+							}
+						}
+					</script>
+				</div>
+
+			</div>
+		</div>
+		<!-- /prop_demo -->
+	</div>
+	<!-- /main -->
+</div>
+<!-- /wrap -->
+</body>
+</html>

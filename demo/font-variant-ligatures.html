@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>-webkit-font-variant-ligatures 字体连字</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+  <style type="text/css">
+    body
+    {
+    font-family: 'hoefler Text', 'palatino linotype', serif;
+    font-size: 3em;
+    }
+    
+    h1
+    {
+    font-size: 1em;
+    margin-bottom: 0;
+    color:#0099ff;
+    }
+    
+    p
+    {
+    margin-top: 0;
+    }
+    
+    span
+    {
+    display: block;
+    }
+
+    .common-ligatures
+    {
+    font-variant-ligatures: common-ligatures;
+    }
+  
+    .no-common-ligatures
+    {
+    font-variant-ligatures: no-common-ligatures;
+
+    }
+
+    .additional-ligatures
+    {
+    font-variant-ligatures: additional-ligatures;
+    }
+
+    .historical-ligatures
+    {
+    font-variant-ligatures: historical-ligatures;
+    }
+    
+    .normal
+    {
+    font-variant-ligatures: normal;
+    }
+    
+    .inherit
+    {
+    font-variant-ligatures: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+  	<header>
+      属性名称：-webkit-font-variant-ligatures
+    </header>
+    <section>
+      <h2>Demo -webkit-font-variant-ligatures （中文字符无效果）</h2>
+      <div class="font-variant">
+        <h1><code>font-variant-ligatures: common-ligatures;</code></h1>
+        <p class="common-ligatures">Common ligatures should be used: ff, fl, fi, ffl, ffi, fb, ffb, fh, ffh, fk, ffk, fj <i>&amp;</i> ffj.
+        <span class="no-common-ligatures">Common ligatures should be off: ff, fl, fi, ffl, ffi, fb, ffb, fh, ffh, fk, ffk, fj <i>&amp;</i> ffj.三五和合 </span>
+        </p>
+        
+        <h1><code>font-variant-ligatures: additional-ligatures;</code></h1>
+        <p class="additional-ligatures">Additional ligatures should be used: st <i>&amp;</i> ct.
+        <span class="no-additional-ligatures">Additional ligatures should be off: st <i>&amp;</i> ct.三五和合</span>
+        </p>
+        <h1><code>font-variant-ligatures: historical-ligatures;</code></h1>
+        <p class="historical-ligatures">Historic ligatures should be used: tz, th, ſb, ſh, ſl <i>&amp;</i> ſt
+        <span class="no-historical-ligatures">Historic ligatures should be off: tz, th, ſb, ſh, ſl <i>&amp;</i> ſt.三五和合</span>  
+        </p>
+        <h1><code>font-variant-ligatures: normal;</code></h1>
+        <p class="common-ligatures additional-ligatures historical-ligatures">
+          <span class="normal">Common Common ligatures should be used: ff, fl, fi, ffl, ffi, fb, ffb, fh, ffh, fk, ffk, fj <i>&amp;</i> ffj.</span>
+          <span class="normal">Additional ligatures should be off: st <i>&amp;</i> ct.</span>
+          <span class="normal">Historic ligatures should be off: tz, th, ſb, ſh, ſl <i>&amp;</i> ſt.</span>
+        </p>
+        
+        <h1><code>font-variant-ligatures: inherit;</code></h1>
+        <p class="common-ligatures additional-ligatures historical-ligatures">
+          <span class="inherit">Common ligatures should be used: ff, fl, fi, ffl, ffi, fb, ffb, fh, ffh, fk, ffk, fj <i>&amp;</i> ffj.三五和合</span>
+          <span class="inherit">Additional ligatures should be used: st <i>&amp;</i> ct.</span>
+          <span class="inherit">Historic ligatures should be used: tz, th, ſb, ſh, ſl <i>&amp;</i> ſt.</span>
+        </p>
+        
+        <h1><code>font-variant-ligatures: normal; font-variant-ligatures: inherit;</code></h1>
+        <p class="normal">
+          <span class="inherit">Common ligatures should be used: ff, fl, fi, ffl, ffi, fb, ffb, fh, ffh, fk, ffk, fj <i>&amp;</i> ffj.</span>
+          <span class="inherit">Additional ligatures should be off: st <i>&amp;</i> ct.</span>
+          <span class="inherit">Historic ligatures should be off: tz, th, ſb, ſh, ſl <i>&amp;</i> ſt.</span>
+        </p>
+
+      </div>
+
+      
+    </section>
+
+  </div>
+</body>
+</html>

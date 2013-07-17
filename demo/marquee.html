@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>-webkit-marquee Demo Specification</title>
+<style type="text/css">
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button { margin:0; padding:0; }
+body { font:normal 16px Calibri,Tahoma,"Microsoft Yahei",Simsun; }
+ul li, ol li { list-style:none; }
+#adjust_box, #display_box { float:left; }
+#adjust_box { width:380px; margin:10px; background-color:#FEE9CC; }
+#display_box { position:relative; width:800px; height:100px; padding:50px 10px; margin-top:10px; font-size:30px; border:10px dashed #CCC; }
+marquee { width:800px; height:100px; }
+input { margin-right:3px; vertical-align:middle; }
+input[type="text"] { margin-top:5px; padding:3px; }
+dl { padding:0 10px; }
+dt { margin-bottom:10px; padding:5px 0; font-size:30px; text-align:center; border-bottom:1px solid #CCC; box-shadow:0 1px 1px #EFEFEF; }
+dd { margin-bottom:20px; }
+dd label { display:inline-block; margin-right:10px; }
+dd span { display:block; font-size:20px; font-weight:bold; }
+strong { display:block; font-size:16px; font-weight:normal; }
+i { font-style:normal; font-size:20px; font-weight:bold; }
+</style>
+</head>
+<body>
+<dl id="adjust_box">
+	<dt>-webkit-marquee</dt>
+	<dd><span>direction</span>
+		<label><input type="radio" name="direction" id="" value="ahead" />ahead</label>
+		<label><input type="radio" name="direction" id="" value="auto" />auto(default)</label>
+		<label><input type="radio" name="direction" id="" value="backwards" />backwards</label>
+		<label><input type="radio" name="direction" id="" value="down" />down</label>
+		<label><input type="radio" name="direction" id="" value="forwards" />forwards</label>
+		<label><input type="radio" name="direction" id="" value="left" />left</label>
+		<label><input type="radio" name="direction" id="" value="reverse" />reverse</label>
+		<label><input type="radio" name="direction" id="" value="right" />right</label>
+		<label><input type="radio" name="direction" id="" value="up" />up</label>
+	</dd>
+	<dd><span>increment</span>
+		<label><input type="radio" name="increment" id="" value="large" />large</label>
+		<label><input type="radio" name="increment" id="" value="medium" />medium</label>
+		<label><input type="radio" name="increment" id="" value="small" />small</label><br />OR<br />
+		<label><input type="range" name="increment" min="-100" max="100" value="0" id="incDistance" /><b>0</b>px</label>
+	</dd>
+	<dd><span>repetition</span>
+		<label><input type="radio" name="repetition" id="" value="infinite" />infinite</label><br />
+		<label><input type="range" name="repetition" min="0" max="100" value="0" id="iterations" /><b>0</b>次</label>
+	</dd>
+	</dd>
+	<dd><span>style</span>
+		<label><input type="radio" name="style" id="" value="alternate" />alternate</label>
+		<label><input type="radio" name="style" id="" value="none" />none</label>
+		<label><input type="radio" name="style" id="" value="scroll" />scroll</label>
+		<label><input type="radio" name="style" id="" value="slide" />slide</label>
+	</dd>
+	<dd><span>speed</span>
+		<label><input type="radio" name="speed" id="" value="fast" />fast</label>
+		<label><input type="radio" name="speed" id="" value="normal" />normal(default)</label>
+		<label><input type="radio" name="speed" id="" value="slow" />slow</label>
+		<label><input type="range" name="speed" min="0" max="100" value="0" id="speedTime" /><b>0</b>秒</label><br />
+		<label><del>100/1</del><br /><del>100px/1</del><br /><del>100/1s</del><br /><del>100px/1s</del></label>
+	</dd>
+</dl>
+<div id="display_box">
+	<marquee>携程UED 携程UED 携程UED 携程UED 携程UED</marquee>
+</div>
+
+<script type="text/javascript">
+	var $ = function(a) {
+			return document.getElementById(a);
+		},
+		adjustBox = $('adjust_box'),
+		displayBox = $('display_box'),
+		movingContent = document.getElementsByTagName('marquee')[0],
+		incDistance = $('incDistance'),
+		iterations = $('iterations'),
+		speedTime = $('speedTime');
+	adjustBox.onmousedown = function(event) {
+		var e = event ? event : window.event,
+			target = e.target || e.srcElement;
+		if(target.type == 'radio' || (target.nodeName.toLowerCase() == 'label' && target.firstChild.type == 'radio')) {
+			var finalTarget = target.type == 'radio' ? target : target.firstChild;
+			movingContent.style.cssText += '-webkit-marquee-' + finalTarget.name + ':' + finalTarget.value;
+		}
+
+	};
+	adjustBox.onchange = function(event) {
+		var e = event ? event : window.event,
+			target = e.target || e.srcElement;
+		target.nextSibling.innerHTML = target.value;
+		switch(target.id) {
+			case 'incDistance' : movingContent.style.cssText += '-webkit-marquee-increment:' + target.value + 'px'; break;
+			case 'iterations' : movingContent.style.cssText += '-webkit-marquee-repetition:' + target.value; break;
+			case 'speedTime' : movingContent.style.cssText += '-webkit-marquee-speed:' + target.value +'s'; break;
+			default : break;
+		}
+	}
+
+</script>
+</body>
+</html>

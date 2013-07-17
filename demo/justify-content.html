@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>justify-content</title>
+	<style>
+		h1 {font-size:24px;}
+		h1 span {font-size:18px;font-weight:normal;}
+		dt {font-size:20px;margin-bottom:5px;}
+		dd {display:-webkit-flex;width:500px;height:80px;margin-bottom:40px;background-color:#ccc;}
+		.item1 {width:10%;background-color:#ff0;}
+		.item2 {width:25%;background-color:#0ff;}
+		.item3 {width:40%;background-color:#f00;}
+		.eg_flex-start {-webkit-justify-content: flex-start;}
+		.eg_flex-end {-webkit-justify-content: flex-end;}
+		.eg_center {-webkit-justify-content: center;}
+		.eg_space-between {-webkit-justify-content: space-between;}
+		.eg_space-around {-webkit-justify-content: space-around;}
+
+	</style>
+</head>
+<body>
+	<h1>justify-content:设置伸缩子元素的对齐方式,沿着主轴排齐内容。<span>伸缩布局要使用display:-webkit-flex;</span></h1>
+	<dl>
+		<dt><strong>flex-start:</strong>将伸缩子元素捆在主轴起始端，将空白留到结尾端</dt>
+		<dd class="eg_flex-start">
+			<div class="item1">A</div>
+			<div class="item2">B</div>
+			<div class="item3">C</div>
+		</dd>
+		<dt><strong>flex-end:</strong>将伸缩子元素捆在主轴结尾端，将空白留到起始端。</dt>
+		<dd class="eg_flex-end">
+			<div class="item1">A</div>
+			<div class="item2">B</div>
+			<div class="item3">C</div>
+		</dd>
+		<dt><strong>center:</strong>将伸缩子元素捆在主轴的中间位置，将空白平均分到两端。</dt>
+		<dd class="eg_center">
+			<div class="item1">A</div>
+			<div class="item2">B</div>
+			<div class="item3">C</div>
+		</dd>
+		<dt><strong>space-between:</strong>跟 space-around 的效果很相像，但是没有分配空间到开始、结尾两端。</dt>
+		<dd class="eg_space-between">
+			<div class="item1">A</div>
+			<div class="item2">B</div>
+			<div class="item3">C</div>
+		</dd>
+		<dt><strong>space-around:</strong></dt>
+		<dd class="eg_space-around">
+			<div class="item1">A</div>
+			<div class="item2">B</div>
+			<div class="item3">C</div>
+		</dd>
+	</dl>
+	
+</body>
+</html>

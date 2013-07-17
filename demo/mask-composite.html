@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>mask-composite相关属性demo</title>
+	<style type="text/css">
+		dd {width:650px; height:300px; margin-bottom:10px; background:url(../img/apple.jpg) no-repeat; -webkit-mask-image: url(../img/mask.png), url(../img/apple.png); -webkit-mask-repeat:no-repeat;}
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>
+			-webkit-mask-composite:source-over;
+		</dt>
+		<dd style="-webkit-mask-composite:source-over,source-over;">
+		</dd>
+		<dt>
+			-webkit-mask-composite:source-in, source-over;
+		</dt>
+		<dd style="-webkit-mask-composite: source-in, source-over;">
+		</dd>
+	</dl>
+</body>
+</html>

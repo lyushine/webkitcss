@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>-webkit-flex-direction 伸缩流的方向</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<style>
+  header{background:#F1F1F1;padding:20px;color:#333333;border-bottom:1px solid #DDDDDD;font:18px "Microsoft Yahei";}
+  section .intro{padding:10px;margin:10px 0;border:1px solid #DDDDDD;background:#F2F2F2;}
+  .flexbox {
+      display: -webkit-flex;  // 目前需要浏览器引擎前缀支持
+      -webkit-flex-direction: row; // 子元素以行排列
+      -webkit-flex-wrap: nowrap;
+      width: 100%;
+  }
+  .flexbox div{color:#ffffff;font-size:14px;text-align:center;}
+  .flexbox .item1{-webkit-flex:1 1 auto;background:#ff6600;}
+  .flexbox .item2{-webkit-flex:1 1 auto;background:#0099ff;}
+  .flexbox .item3{-webkit-flex:2 1 auto;background:#ff9900;}
+</style>
+
+</head>
+<body>
+  <div class="wrapper">
+  	<header>
+      属性名称：-webkit-flex-direction
+    </header>
+    <section>
+
+      <div class="flexbox">
+        <div class="item1">DIV 1 <br/>-webkit-flex:1;</div>
+        <div class="item2">DIV 2 <br/><br/>-webkit-flex:1;</div>
+        <div class="item3">DIV 3 <br/>-webkit-flex:2;</div>
+      </div>
+      <div class="intro">
+          <p>排列方式为row</p>
+      </div>
+      <div class="flexbox" style="-webkit-flex-direction:row-reverse;">
+        <div class="item1">DIV 1 <br/>-webkit-flex:1;</div>
+        <div class="item2">DIV 2 <br/><br/>-webkit-flex:1;</div>
+        <div class="item3">DIV 3 <br/>-webkit-flex:2;</div>
+      </div>
+      <div class="intro">
+          <p>排列方式row-reverse;</p>
+      </div>
+      <div class="flexbox" style="-webkit-flex-direction:column;height:200px;">
+        <div class="item1">DIV 1 <br/>-webkit-flex:1;</div>
+        <div class="item2">DIV 2 <br/>-webkit-flex:1;</div>
+        <div class="item3">DIV 3 <br/>-webkit-flex:2;</div>
+      </div>
+      <div class="intro">
+          <p>排列方式column;容器高度设为200px</p>
+      </div>
+      <div class="flexbox" style="-webkit-flex-direction:column-reverse;height:200px;">
+        <div class="item1">DIV 1 <br/>-webkit-flex:1;</div>
+        <div class="item2">DIV 2 <br/>-webkit-flex:1;</div>
+        <div class="item3">DIV 3 <br/>-webkit-flex:2;</div>
+      </div>
+      <div class="intro">
+          <p>排列方式column-reverse;容器高度设为200px</p>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>

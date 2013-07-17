@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>mask-size相关属性demo</title>
+	<style type="text/css">
+	h1{font-size:16px;}
+	.test{overflow:hidden;width:100%;margin:0;padding:0;list-style:none;}
+	.test li{width:220px;height:100px;margin:1px 5px;padding:10px;background:#eee;color:#000;
+		-webkit-transition-property:all;
+		-webkit-transition-duration:.5s;
+		-webkit-transition-timing-function:ease;
+	}
+	.test li:nth-child(1){-webkit-transition-delay:.5s;}
+	.test li:nth-child(2){-webkit-transition-delay:1s;}
+	.test li:nth-child(3){-webkit-transition-delay:2s;}
+	.test li:nth-child(4){-webkit-transition-delay:3s;}
+	.test li:hover{border-color:#999;background:#2EC7D2;color:#fff;}
+	</style>
+</head>
+<body>
+<h1>鼠标hover查看效果</h1>
+<ul class="test">
+	<li>延迟0.5s</li>
+	<li>延迟1s</li>
+	<li>延迟2s</li>
+	<li>延迟3s</li>
+</ul>
+</body>
+</html>

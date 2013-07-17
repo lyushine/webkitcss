@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>webkit-box相关属性demo</title>
+	<style type="text/css">
+		ul,li {list-style:none;}
+		li {padding:10px 0;}
+		dd {display:-webkit-box;width:800px;margin:20px auto 80px;padding:10px;border:1px solid #999;background-color:#CCC;}
+		dd div {padding:40px 0;text-align:center;color:#fff;}
+		.flex_3 {-webkit-box-flex:3;}
+		.flex_2 {-webkit-box-flex:2;}
+		.flex_w200 {width:200px;}
+		.flex_w300 {width:300px;}
+		.shadow_box {box-shadow:3px 3px 3px rgba(0,0,0,0.8);}
+		.reflect_box {-webkit-box-reflect: below 10px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(white));}
+		.list_1 {-webkit-box-ordinal-group:1;}
+		.list_2 {-webkit-box-ordinal-group:2;}
+		.size_box {margin:20px;}
+		.size_box_border {-webkit-box-sizing:border-box;}
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>加上了-webkit-box-shadow的效果</dt>
+		<dd class="shadow_box">
+			<div class="flex_3" style="background-color:#A1D942;">1</div>
+			<div class="flex_2" style="background-color:#D8390C;">2</div>
+			<div class="flex_w200" style="background-color:#20549D;">只定义了固定宽度，不管内容怎样多喵喵喵喵喵都不会改变剩余宽度的~</div>
+		</dd>
+	</dl>
+</body>
+</html>

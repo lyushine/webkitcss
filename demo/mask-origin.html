@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>mask-origin相关属性demo</title>
+	<style type="text/css">
+		dd {width:600px;height:300px;margin-bottom:20px;padding:10px;border:10px solid #999;background:url(../img/apple.jpg) no-repeat;-webkit-mask-image: url('../img/apple.png'); -webkit-mask-repeat:no-repeat; -webkit-mask-position:0 10px;}
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>-webkit-mask-origin:padding;<br/>
+		默认值，从padding开始计算-webkit-mask-position的值
+		</dt>
+		<dd style="-webkit-mask-origin:padding;">
+		</dd>
+		<dt>-webkit-mask-origin:border ;<br/>
+		从border开始计算-webkit-mask-position的值
+		</dt>
+		<dd style="-webkit-mask-origin:border ;">
+		</dd>
+		<dt>-webkit-mask-origin:content ;<br/>
+		从元素内容部分开始计算-webkit-mask-position的值
+		</dt>
+		<dd style="-webkit-mask-origin:content ;">
+		</dd>
+	</dl>
+</body>
+</html>

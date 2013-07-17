@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>-webkit-appearance Demo Specification</title>
+<style type="text/css">
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button { margin:0; padding:0; }
+body { font:normal 16px Calibri,Tahoma,"Microsoft Yahei",Simsun; }
+ul li, ol li { list-style:none; }
+#display_box { float:left; margin-left: 450px; }
+#adjust_box { width:380px; margin:10px; background-color:#FEE9CC; top:0; bottom:0; overflow-y: scroll ;position: absolute;}
+#display_box { position:relative; width:800px; height:100px; padding:50px 10px; margin-top:10px; font-size:30px; border:10px dashed #CCC; }
+marquee { width:800px; height:100px; }
+input { margin-right:3px; vertical-align:middle; }
+input[type="text"] { margin-top:5px; padding:3px; }
+dl { padding:0 10px; }
+dt { margin-bottom:10px; padding:5px 0; font-size:30px; text-align:center; border-bottom:1px solid #CCC; box-shadow:0 1px 1px #EFEFEF; }
+dd { margin-bottom:20px; }
+dd label { display:block; margin-right:10px; cursor: pointer; margin:8px 0;}
+dd span { display:block; font-size:20px; font-weight:bold; }
+strong { display:block; font-size:16px; font-weight:normal; }
+i { font-style:normal; font-size:20px; font-weight:bold; }
+
+</style>
+</head>
+<body>
+<dl id="adjust_box">
+	<dt>-webkit-appearance</dt>
+	<dd><span>value</span>
+		<label><input type="radio" name="value" value="caps-lock-indicator" />caps-lock-indicator</label>
+		<label><input type="radio" name="value" checked="checked" value="button" />button</label>
+		<label><input type="radio" name="value"  value="button-bevel" />button-bevel</label>
+		<label><input type="radio" name="value"  value="caret" />caret</label>
+		<label><input type="radio"  name="value" value="checkbox" />forwcheckboxards</label>
+		<label><input type="radio"  name="value" value="default-button" />default-button</label>
+		<label><input type="radio"  name="value" value="listbox" />listbox</label>
+		<label><input type="radio"  name="value" value="listitem" />listitem</label>
+		<label><input type="radio"  name="value" value="media-fullscreen-button" />media-fullscreen-button</label>
+		<label><input type="radio"  name="value" value="media-mute-button" />media-mute-button</label>
+		<label><input type="radio"  name="value" value="media-play-button" />media-play-button</label>
+		<label><input type="radio"  name="value" value="media-seek-back-button" />media-seek-back-button</label>
+		<label><input type="radio"  name="value" value="media-seek-forward-button" />media-seek-forward-button</label>
+		<label><input type="radio" name="value"  value="button" />media-slider</label>
+		<label><input type="radio" name="value"  value="button" />media-sliderthumb</label>
+		<label><input type="radio"  name="value" value="button" />menulist</label>
+		<label><input type="radio"  name="value" value="button" />menulist-button</label>
+		<label><input type="radio"  name="value" value="button" />menulist-text</label>
+		<label><input type="radio"  name="value" value="button" />menulist-textfield</label>
+		<label><input type="radio"  name="value" value="button" />none</label>
+		<label><input type="radio"  name="value" value="button" />push-button</label>
+		<label><input type="radio"  name="value" value="button" />radio</label>
+		<label><input type="radio"  name="value" value="button" />searchfield</label>
+		<label><input type="radio"  name="value" value="button" />searchfield-cancel-button</label>
+		<label><input type="radio"  name="value" value="button" />searchfield-decoration</label>
+		<label><input type="radio"  name="value" value="button" />searchfield-results-button</label>
+		<label><input type="radio" value="button" />searchfield-results-decoration</label>
+		<label><input type="radio" name="value"  value="button" />slider-horizontal</label>
+		<label><input type="radio" name="value"  value="button" />slider-vertical</label>
+		<label><input type="radio" name="value"  value="button" />sliderthumb-horizontal</label>
+		<label><input type="radio" name="value"  value="button" />sliderthumb-vertical</label>
+		<label><input type="radio" name="value"  value="button" />square-button</label>
+		<label><input type="radio" name="value"  value="button" />textarea</label>
+		<label><input type="radio" name="value"  value="button" />textfield</label>
+		<label><input type="radio" name="value" value="button" />scrollbarbutton-down</label>
+		<label><input type="radio" name="value"  value="scrollbarbutton-left" />scrollbarbutton-left</label>
+		<label><input type="radio" name="value"  value="scrollbarbutton-right" />scrollbarbutton-right</label>
+		<label><input type="radio" name="value"  value="scrollbarbutton-up" />scrollbarbutton-up</label>
+		<label><input type="radio" name="value"  value="scrollbargripper-horizontal" />scrollbargripper-horizontal</label>
+		<label><input type="radio" name="value"  value="scrollbargripper-vertical" />scrollbargripper-vertical</label>
+		<label><input type="radio" name="value"  value="scrollbarthumb" />scrollbarthumb-horizontal</label>
+		<label><input type="radio" name="value"  value="scrollbarthumb" />scrollbarthumb-vertical</label>
+		<label><input type="radio"  name="value" value="scrollbartrack" />scrollbartrack-horizontal</label>
+		<label><input type="radio" name="value"  value="scrollbartrack" />scrollbartrack-vertical</label>
+	</dd>
+</dl>
+<div id="display_box">
+		<div id="demo" style="-webkit-appearance: button;">Some text</div>
+</div>
+<script type="text/javascript">
+	window.onload = function(){
+		var valueBtns = document.getElementById("adjust_box").getElementsByTagName("input");
+		var show = document.getElementById("demo");
+		for(var i=0; i < valueBtns.length; i++){
+			valueBtns[i].onclick = (function(i){
+				return function(){
+					show.style.webkitAppearance = valueBtns[i].nextSibling.nodeValue;
+					show.style.appearance = valueBtns[i].nextSibling.nodeValue;
+				}
+			})(i);
+		}
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<title></title>
+	<style type="text/css">
+		body{font-size:14px;font-family:microsoft yahei;}
+		h1{margin-bottom:10px;padding-bottom:10px;font-size:22px;border-bottom:1px solid #999;}
+		div{width:200px;height:200px;margin:50px auto;padding:30px;font-size:20px;border:10px dashed #CCC;background:url(../img/c_logo2012.png) no-repeat;}
+		span{color:#F00;}
+		.bb{-webkit-background-origin:border-box;}
+		.pb{-webkit-background-origin:padding-box;}
+		.cb{-webkit-background-origin:content-box;}
+	</style>
+</head>
+<body>
+	<h1>-webkit-background-origin:</h1>
+	<div class="bb">test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test </div>
+	<input type="button" value="border-box" onclick="Div.className='bb';Span.innerHTML='border-box'" />
+	<input type="button" value="padding-box" onclick="Div.className='pb';Span.innerHTML='padding-box'" />
+	<input type="button" value="content-box" onclick="Div.className='cb';Span.innerHTML='content-box'" />
+	<p>
+		虚线为边框<br />background-origin: <span>border-box</span>
+	</p>
+	<script type="text/javascript">
+		var Div=document.getElementsByTagName('div')[0];
+		var Span=document.getElementsByTagName('span')[0];
+	</script>
+</body>
+</html>
+

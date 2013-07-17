@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<title>-webkit-backface-visibility Demo Specification</title>
+<style type="text/css">
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button { margin:0; padding:0; }
+body { font:normal 16px Calibri,Tahoma,"Microsoft Yahei",Simsun; }
+ul li, ol li { list-style:none; }
+#adjust_box, #display_box { float:left; }
+#adjust_box { width:380px; margin:10px; background-color:#FEE9CC; }
+#display_box { position:relative; width:580px; height:400px; margin-top:10px; border:10px dashed #CCC; }
+#display_box div { width:200px; height:200px; }
+dl { padding:0 10px; }
+dt { margin-bottom:10px; padding:5px 0; font-size:30px; text-align:center; border-bottom:1px solid #CCC; box-shadow:0 1px 1px #EFEFEF; }
+dd { margin-bottom:20px; }
+dd label { margin-right:10px; cursor: pointer; }
+dd span { display:block; font-size:20px; font-weight:bold; }
+dd b { margin-left:10px; vertical-align:middle; }
+dd i { font-size:24px; font-style:normal; color:#F00; }
+input { margin-right:3px; vertical-align:middle; }
+#display_box .pop { position:absolute; top:10px;right:50px; width:250px; height:50px; margin-top:50px; padding:10px; background-color:#ECFBFF; border:5px solid #D7F1FF; border-radius:20px; }
+#display_box b { position:absolute; top:50%; left:-16px; width:20px; height:20px; margin-top:-16px; background-color:#ECFBFF; border:5px solid #D7F1FF; border-top:0 none; border-right:0 none; -webkit-transform:rotate(45deg); }
+#display_box .code{background:#efefef; width: 100%; margin-top: 10px; height:200px;}
+</style>
+</head>
+
+<script type="text/javascript">
+	window.onload = function(){
+		var adjustBox = document.getElementById("adjust_box");
+		var one_element = document.getElementById("one_element");
+		var pop = document.getElementById("pop1");
+		one_element.style.webkitTransform = "rotateY(250deg)";
+		adjustBox.onclick = function(e){
+			var e = event ? event : window.event,
+			target = e.target || e.srcElement;
+			console.log(document.getElementById("aaa").checked);
+			if(document.getElementById("aaa").checked == true){
+				one_element.style.webkitBackfaceVisibility = "visible";
+				pop.innerHTML = "backface-visibility 设置为可见";
+			}
+			if(document.getElementById("bbb").checked == true){
+				one_element.style.webkitBackfaceVisibility = "hidden";
+				pop.innerHTML = "backface-visibility 设置为不可见";
+			}
+			if(document.getElementById("ccc").checked == true){
+				one_element.style.webkitTransform = "rotateY(250deg)";
+				pop.innerHTML = "transform 设置旋转";
+			}
+			if(document.getElementById("ddd").checked == true){
+				one_element.style.webkitTransform = "none";
+				pop.innerHTML = "transform 不设置旋转";
+			}
+
+			if(document.getElementById("bbb").checked == true && document.getElementById("ccc").checked == true){
+				pop.innerHTML = "transform 设置旋转且backface-visibility:设置为不可见，图片不见了";
+			}
+
+		}
+	}
+</script>
+<body>
+<dl id="adjust_box">
+	<dt>-webkit-backface-visibility</dt>
+	<dd><span>backface-visibility:</span>
+		<form name ="name1" action="">
+		<label><input type="radio" checked ="checked" name="aaa" id="aaa" />visible</label>
+		<label><input type="radio"  name="aaa" id="bbb" />hidden</label>
+		</form>
+	</dd>
+	<dd><span>transform</span>
+		<form name ="name2" action="">
+		<label><input type="radio" checked="checked" name="ccc" id="ccc" />Yes</label>
+		<label><input type="radio" name="ccc" id="ddd" />No</label>
+		</form>
+	</dd>
+</dl>
+<div id="display_box">
+	<div id="one_element" style="background:url(female.jpg) no-repeat; -webkit-backface-visibility:visible; transform:none;"></div>
+	<div class="pop" id="pop1">-webkit-backface-visibility 设为hidden 且 transform 设置了旋转，元素才不可见</div>
+</div>
+</body>
+</html>

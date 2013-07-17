@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>webkit-box相关属性demo</title>
+	<style type="text/css">
+		ul,li {list-style:none;}
+		li {padding:10px 0;}
+		dd {display:-webkit-box;width:800px;margin:20px auto 80px;padding:10px;border:1px solid #999;background-color:#CCC;}
+		dd div {padding:40px 0;text-align:center;color:#fff;}
+		.flex_3 {-webkit-box-flex:3;}
+		.flex_2 {-webkit-box-flex:2;}
+		.flex_w200 {width:200px;}
+		.flex_w300 {width:300px;}
+		.shadow_box {box-shadow:3px 3px 3px rgba(0,0,0,0.8);}
+		.reflect_box {-webkit-box-reflect: below 10px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.5, transparent), to(white));}
+	</style>
+</head>
+<body>
+	<dl>
+		<dt>
+			默认状态：父容器800px，最后一个box定宽200px，前两个box按3:2自动分配宽度。<br />
+			-webkit-box-direction:normal;
+		</dt>
+		<dd style="-webkit-box-direction:normal;">
+			<div class="flex_3" style="background-color:#A1D942;">1</div>
+			<div class="flex_2" style="background-color:#D8390C;">2</div>
+			<div class="flex_w200" style="background-color:#20549D;">只定义了固定宽度，不管内容怎样多喵喵喵喵喵都不会改变剩余宽度的~</div>
+		</dd>
+		<dt>-webkit-box-direction:reverse;</dt>
+		<dd style="-webkit-box-direction:reverse;">
+			<div class="flex_3" style="background-color:#A1D942;">1</div>
+			<div class="flex_2" style="background-color:#D8390C;">2</div>
+			<div class="flex_w200" style="background-color:#20549D;">只定义了固定宽度，不管内容怎样多喵喵喵喵喵都不会改变剩余宽度的~</div>
+		</dd>
+		<dt>-webkit-box-direction:inherit;</dt>
+		<dd style="-webkit-box-direction:inherit;">
+			<div class="flex_3" style="background-color:#A1D942;">1</div>
+			<div class="flex_2" style="background-color:#D8390C;">2</div>
+			<div class="flex_w200" style="background-color:#20549D;">只定义了固定宽度，不管内容怎样多喵喵喵喵喵都不会改变剩余宽度的~</div>
+		</dd>
+	</dl>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gb2312">
+	<title>mask-size相关属性demo</title>
+	<style type="text/css">
+	ul,li{list-style:none;margin:0;padding:0;}
+	.test{width:200px;height:200px;margin:10px;border:1px solid #aaa;}
+	.horizontal-tb{-webkit-writing-mode:horizontal-tb;}
+	.vertical-rl{-webkit-writing-mode:vertical-rl;}
+	.vertical-lr{-webkit-writing-mode:vertical-lr;}
+	</style>
+</head>
+<body>
+	<div class="test horizontal-tb">本段文字将按照水平方向自上而下的书写方式。-webkit-writing-mode:horizontal-tb;</div>
+	<div class="test vertical-rl">本段文字将按照垂直方向自右而左的书写方式。-webkit-writing-mode:vertical-rl;</div>
+	<div class="test vertical-lr">本段文字将按照垂直方向自左而右的书写方式。-webkit-writing-mode:vertical-lr;</div>
+	<div class="test">本段文字将按照水平从左到右的书写方式。</div>
+</body>
+</html>
