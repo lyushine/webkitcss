@@ -1,5 +1,10 @@
 webkitcss
 =========
+
+项目展示地址：http://ued.ctrip.com/blog/wp-content/webkitcss/
+
+以下为项目属性计划索引，展示地址中的内容将不断的优化改进。
+
 在win系统/mac系统/ios上的支持情况
                     </li>
                 </ul>
