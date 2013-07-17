@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<style>
+h1{font-size:16px;}
+p{position:relative;z-index:2;height:200px;margin:300px 0 0 0;background:#fff;}
+p:after{position:absolute;z-index:3;top:0px;left:0;width:100%;height:1px;background:#ddd;content:'.';box-shadow:0 0 30px 1px rgba(0,0,0,.9);}
+div{width:100px;height:100px;padding:10px;border-radius:61px;box-shadow:0 0 10px rgba(204,102,0,.8);background:#F6D66E;background:-moz-linear-gradient(top,#fff,#F6D66E);background:-webkit-linear-gradient(top,#fff,#F6D66E);background:-o-linear-gradient(top,#fff,#F6D66E);background:-ms-linear-gradient(top,#fff,#F6D66E);background:linear-gradient(top,#fff,#F6D66E);
+	-moz-transform:translate(600px,450px);
+	-webkit-transform:translate(600px,450px);
+	-o-transform:translate(600px,450px);
+	-ms-transform:translate(600px,450px);
+	transform:translate(600px,450px);
+	-moz-animation:animations2 1s ease,animations 6s ease 1s;
+	-webkit-animation:animations2 1s ease,animations 6s ease 1s;
+	-o-animation:animations2 1s ease,animations 6s ease 1s;
+	-ms-animation:animations2 1s ease,animations 6s ease 1s;
+	animation:animations2 1s ease,animations 6s ease 1s;
+}
+@-webkit-keyframes animations{
+	0%{-webkit-transform:translate(0,0);}
+	55%{-webkit-transform:translate(480px,360px);}
+	100%{-webkit-transform:translate(600px,450px);}
+}
+@-moz-keyframes animations{
+	0%{-moz-transform:translate(0,0);}
+	55%{-moz-transform:translate(480px,360px);}
+	100%{-moz-transform:translate(600px,450px);}
+}
+@-o-keyframes animations{
+	0%{-o-transform:translate(0,0);}
+	55%{-o-transform:translate(480px,360px);}
+	100%{-o-transform:translate(600px,450px);}
+}
+@-ms-keyframes animations{
+	0%{-ms-transform:translate(0,0);}
+	55%{-ms-transform:translate(480px,360px);}
+	100%{-ms-transform:translate(600px,450px);}
+}
+@keyframes animations{
+	0%{transform:translate(0,0);}
+	55%{transform:translate(480px,360px);}
+	100%{transform:translate(600px,450px);}
+}
+@-moz-keyframes animations2{
+	0%{-moz-transform:translate(0,0);}
+	100%{-moz-transform:translate(0,0);}
+}
+@-webkit-keyframes animations2{
+	0%{-webkit-transform:translate(0,0);}
+	100%{-webkit-transform:translate(0,0);}
+}
+@-o-keyframes animations2{
+	0%{-o-transform:translate(0,0);}
+	100%{-o-transform:translate(0,0);}
+}
+@-ms-keyframes animations2{
+	0%{-ms-transform:translate(0,0);}
+	100%{-ms-transform:translate(0,0);}
+}
+@keyframes animations2{
+	0%{transform:translate(0,0);}
+	100%{transform:translate(0,0);}
+}
+</style>
+</head>
+<body>
+<h1>太阳将在1s后开始下山：</h1>
+<div></div>
+<p></p>
+</body>
+</html>
+			

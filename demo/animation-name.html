@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+div{opacity:0;position:absolute;top:50%;left:50%;width:300px;height:150px;margin:-75px 0 0 -150px;}
+.over{border:3px solid #eee;background:#e0e0e0;}
+.text{font:bold 14px/150px Georgia;text-align:center;}
+.over{
+	-webkit-animation:animations 2.5s ease-out,animations3 1s ease-out 2.5s;
+	-moz-animation:animations 2.5s ease-out,animations3 1s ease-out 2.5s;
+	-o-animation:animations 2.5s ease-out,animations3 1s ease-out 2.5s;
+	-ms-animation:animations 2.5s ease-out,animations3 1s ease-out 2.5s;
+	animation:animations 2.5s ease-out,animations3 1s ease-out 2.5s;
+}
+@-webkit-keyframes animations{
+	0%{-webkit-transform:scale(0);opacity:0;}
+	40%{-webkit-transform:scale(1);opacity:1;}
+	100%{opacity:1;}
+}
+@-moz-keyframes animations{
+	0%{-moz-transform:scale(0);opacity:0;}
+	40%{-moz-transform:scale(1);opacity:1;}
+	100%{opacity:1;}
+}
+@-o-keyframes animations{
+	0%{-o-transform:scale(0);opacity:0;}
+	40%{-o-transform:scale(1);opacity:1;}
+	100%{opacity:1;}
+}
+@-ms-keyframes animations{
+	0%{-ms-transform:scale(0);opacity:0;}
+	40%{-ms-transform:scale(1);opacity:1;}
+	100%{opacity:1;}
+}
+@keyframes animations{
+	0%{transform:scale(0);opacity:0;}
+	40%{transform:scale(1);opacity:1;}
+	100%{opacity:1;}
+}
+.text{
+	-webkit-animation:animations2 1.5s ease-out 1s;
+	-moz-animation:animations2 1.5s ease-out 1s;
+	-o-animation:animations2 1.5s ease-out 1s;
+	-ms-animation:animations2 1.5s ease-out 1s;
+	animation:animations2 1.5s ease-out 1s;
+}
+@-webkit-keyframes animations2{
+	0%{-webkit-transform:scale(4);opacity:0;}
+	40%{-webkit-transform:scale(2);opacity:1;}
+	70%{-webkit-transform:scale(2);opacity:1;}
+	100%{-webkit-transform:scale(5);opacity:0;}
+}
+@-moz-keyframes animations2{
+	0%{-moz-transform:scale(4);opacity:0;}
+	40%{-moz-transform:scale(2);opacity:1;}
+	70%{-moz-transform:scale(2);opacity:1;}
+	100%{-moz-transform:scale(5);opacity:0;}
+}
+@-o-keyframes animations2{
+	0%{-o-transform:scale(4);opacity:0;}
+	40%{-o-transform:scale(2);opacity:1;}
+	70%{-o-transform:scale(2);opacity:1;}
+	100%{-o-transform:scale(5);opacity:0;}
+}
+@-ms-keyframes animations2{
+	0%{-ms-transform:scale(4);opacity:0;}
+	40%{-ms-transform:scale(2);opacity:1;}
+	70%{-ms-transform:scale(2);opacity:1;}
+	100%{-ms-transform:scale(5);opacity:0;}
+}
+@keyframes animations2{
+	0%{transform:scale(4);opacity:0;}
+	40%{transform:scale(2);opacity:1;}
+	70%{transform:scale(2);opacity:1;}
+	100%{transform:scale(5);opacity:1;}
+}
+@-webkit-keyframes animations3{
+	0%{-webkit-transform:scale(1);opacity:1;}
+	100%{-webkit-transform:scale(0);opacity:0;}
+}
+@-moz-keyframes animations3{
+	0%{-moz-transform:scale(1);opacity:1;}
+	100%{-moz-transform:scale(0);opacity:0;}
+}
+@-o-keyframes animations3{
+	0%{-o-transform:scale(1);opacity:1;}
+	100%{-o-transform:scale(0);opacity:0;}
+}
+@-ms-keyframes animations3{
+	0%{-ms-transform:scale(1);opacity:1;}
+	100%{-ms-transform:scale(0);opacity:0;}
+}
+@keyframes animations3{
+	0%{transform:scale(1);opacity:1;}
+	100%{transform:scale(0);opacity:0;}
+}
+</style>
+</head>
+<body>
+<div class="over"></div>
+<div class="text">CSS3 Animations</div>
+</body>
+</html>
+			

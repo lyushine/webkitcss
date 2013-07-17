@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>-webkit-user-drag 设置元素拖动</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<style>
+body, input, textarea, select { font-size:14px; font-family:Verdana; }
+ul, li { list-style:none; }
+.wrapper { width:520px; margin:0 auto; }
+h3 { margin:20px 0; clear:both; font-size:24px; }
+.transition li { width:25%; margin-bottom:10px; padding:10px; background:#f60; -webkit-transition-property:all; -webkit-transition-delay:0; -webkit-transition-duration:1s; }
+.transition li:hover { width:100%; }
+.container { float:left; width:240px; height:160px; border:2px solid #000; }
+.drag { margin-left:280px; width:200px; }
+.drag li { margin-bottom:10px; padding:10px; border:3px dashed #999; }
+.modify li { width:360px; height:40px; padding:10px; margin-bottom:10px; border:1px solid #ccc; }
+</style>
+<script>
+function onDragStart(event) {
+	event.dataTransfer.setData("text/plain", event.target.textContent);
+	return true;
+}
+</script>
+</head>
+<body>
+	<div class="wrapper">
+		<h3>-webkit-user-drag</h3>
+		<textarea class="container">Drag the right content here.</textarea>
+		<ul class="drag">
+			<li draggable="true" ondragstart="return onDragStart(event);" style="-webkit-user-drag:element; -webkit-user-select:none; cursor:move;">-webkit-user-drag:element;</li>
+			<li style="-webkit-user-drag:auto;">-webkit-user-drag:auto;</li>
+			<li style="-webkit-user-drag:none;">-webkit-user-drag:none;</li>
+		</ul>
+	</div>
+
+
+</body>
+</html>

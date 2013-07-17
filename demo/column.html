@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>webkit-column测试</title>
+<style type="text/css">
+body {background: #FFFFFF;}
+strong {color:#ff0000;}
+p {margin:0;text-indent:2em;}
+* {-webkit-transition: all 200ms linear;}
+#control {position: relative;z-index: -1;}
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+window.onload = function() {
+	var c_box = document.getElementById("control");
+	
+	var gCount = document.getElementById("get_count");
+	var col_num = document.getElementById("column_num");
+	col_num.onchange = function() {
+		gCount.innerHTML = "<style>.c_count { -webkit-column-count:" + col_num.value + ";}</style><strong>" + col_num.value + "</strong>栏";
+		c_box.style.zIndex = "1";
+	}
+	
+	var gGap = document.getElementById("get_gap");
+	var col_gap = document.getElementById("column_gap");
+	col_gap.onblur = col_gap.onchange = function() {
+		gGap.innerHTML = "<style>.c_count { -webkit-column-gap:" + col_gap.value + ";}</style><strong>" + col_gap.value + "</strong>";
+	}
+	
+	var col_rule_c = document.getElementById("column_rule_color");
+	var col_rule_v = document.getElementById("column_rule_va");
+	var col_rule_t = document.getElementById("line_type");
+	var gRule = document.getElementById("get_rule");
+
+	
+	col_rule_t.onchange = function() {
+		if(col_rule_c.value == undefined || col_rule_v.value == ""){
+			col_rule_v.value = "1px";
+			col_rule_c.value = "#FF0000";
+		}
+		gRule.innerHTML ="<style>.c_count { -webkit-column-rule:" + col_rule_v.value + " " + col_rule_c.value + " " + col_rule_t.value + ";}</style><strong>-webkit-column-rule:" + col_rule_v.value + " " + col_rule_c.value + " " + col_rule_t.value + "</strong>";
+	}
+	col_rule_c.onchange = function() {
+		if(col_rule_t.value == "" || col_rule_v.value == ""){
+			col_rule_v.value = "1px";
+			col_rule_t.value = "solid";
+		}
+		gRule.innerHTML ="<style>.c_count { -webkit-column-rule:" + col_rule_v.value + " " + col_rule_c.value + " " + col_rule_t.value + ";}</style><strong>-webkit-column-rule:" + col_rule_v.value + " " + col_rule_c.value + " " + col_rule_t.value + "</strong>";
+	}
+	col_rule_v.onchange = function() {
+		if(col_rule_t.value == "" || col_rule_c.value == undefined){
+			col_rule_c.value = "#FF0000";
+			col_rule_t.value = "solid";
+		}
+		gRule.innerHTML ="<style>.c_count { -webkit-column-rule:" + col_rule_v.value + " " + col_rule_c.value + " " + col_rule_t.value + ";}</style><strong>-webkit-column-rule:" + col_rule_v.value + " " + col_rule_c.value + " " + col_rule_t.value + "</strong>";
+	}
+	
+	var cBI = document.getElementById("column_break_inside");
+	var gBI = document.getElementById("get_break_inside");
+	var show_b_v = "auto";
+	var show_b_v_a = "avoid";
+	cBI.onchange = function() {
+		if(this.value != 0){
+			gBI.innerHTML = "<style>.c_count p:nth-child(" + this.value + ") {-webkit-column-break-inside: " + show_b_v_a + ";}</style><strong>第" + this.value + "行必须在一栏中 -webkit-column-break-inside: " + show_b_v_a + "</strong>";
+		}else{
+			gBI.innerHTML = "";
+		}
+	}
+	
+	var cBB = document.getElementById("column_break_before");
+	var gBB = document.getElementById("get_break_before");
+	var show_bb_v = "auto";
+	var show_bb_v_a = "always";
+	cBB.onchange = function() {
+		if(this.value != 0){
+			gBB.innerHTML = "<style>.c_count p:nth-child(" + this.value + ") {-webkit-column-break-before: " + show_bb_v_a + ";}</style><strong>第" + this.value + "行前开始断开 -webkit-column-break-before: " + show_bb_v_a + "</strong>";
+		}else{
+			gBB.innerHTML = "";
+		}
+	}
+	
+	var cBA = document.getElementById("column_break_after");
+	var gBA = document.getElementById("get_break_after");
+	var show_ba_v = "auto";
+	var show_ba_v_a = "always";
+	cBA.onchange = function() {
+		if(this.value != 0){
+			gBA.innerHTML = "<style>.c_count p:nth-child(" + this.value + ") {-webkit-column-break-after: " + show_ba_v_a + ";}</style><strong>第" + this.value + "行之后开始断开 -webkit-column-break-after: " + show_ba_v_a + "</strong>";
+		}else{
+			gBA.innerHTML = "";
+		}
+	}
+	
+	var cS = document.getElementById("column_span");
+	var gS = document.getElementById("get_span");
+	var show_S_v = "auto";
+	var show_S_v_a = "all";
+	cS.onchange = function() {
+		if(this.value != 0){
+			gS.innerHTML = "<style>.c_count p:nth-child(" + this.value + ") {-webkit-column-span: " + show_S_v_a + ";padding:10px;background-color:rgb(250, 252, 212);}</style><strong>第" + this.value + "行通栏显示 -webkit-column-span: " + show_S_v_a + "</strong>";
+		}else{
+			gS.innerHTML = "";
+		}
+	}
+}
+</script>
+<div>栏数：<input type="range" step="1" min="1" max="10" value="3" id="column_num" /><span id="get_count"></span></div>
+<ul id="control">
+	<li>分栏之间的间隔：<input type="text" value="" placeholder="数值和单位如：2em" id="column_gap" /><span id="get_gap"></span></li>
+	<li>分栏之间的颜色值：<input type="color" id="column_rule_color" /></li>
+	<li>分栏之间的间隔线大小：<input type="text" value="" placeholder="数值和单位如：1px" id="column_rule_va" /></li>
+	<li>分栏之间的间隔线类型：
+		<select id="line_type">
+			<option value="" selected="selected">选择线条类型</option>
+			<option value="solid">solid</option>
+			<option value="dashed">dashed</option>
+		</select><span id="get_rule"></span>
+	</li>
+	<li>设置某个段落在分栏时通栏显示：<input type="range" step="1" min="0" max="13" value="1" id="column_span" /><span id="get_span"></span></li>
+	<li>设置某个段落在分栏时是否强制不断开，显示在一栏中：<input type="range" step="1" min="0" max="13" value="0" id="column_break_inside" /><span id="get_break_inside"></span></li>
+	<li>设置某个在某个段落前断开，从该段落开始在新的一栏中显示：<input type="range" step="1" min="0" max="13" value="0" id="column_break_before" /><span id="get_break_before"></span></li>
+	<li>设置某个在某个段落后断开，让后面的段落在新的一栏中显示：<input type="range" step="1" min="0" max="13" value="0" id="column_break_after" /><span id="get_break_after"></span></li>
+</ul>
+<div class="c_count">
+	<p><strong>第一行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第二行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第三行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第四行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第五行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第六行</strong> 第九届力支持，其宗旨是、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第七行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第八行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第九行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第十行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第十一行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第十二行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+	<p><strong>第十三行</strong> 第九届联合国际计算机会议得到广东省科技厅网站、广东省信息产业厅、珠海市人民政府及当地学术界和实业界的大力支持，其宗旨是为IT专业人士提供一个交流最新研究成果，了解本领域最新技术发展趋势，探讨IT产业对全球化趋势日益明显的世界新经济影响与作用的舞台，以达到促进地区IT产业发展的目的。应邀参加此次大会的主讲嘉宾包括微软、英特尔、爱立信、三星电子、甲骨文、戴尔等国际知名公司的高层，以及国家科技部、信息产业部、中科院、清华大学、中山大学、国防科技大学、香港大学、联想研究院等部门的官员、专家和学者。</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { margin:0; font:20px 'Trebuchet MS';}
+  .clearfix { width:500px;zoom:1; overflow:hidden; margin:10px auto;}
+  .container span {padding:5px;border:1px solid #999;background:-webkit-gradient(linear, left top, left bottom, from(#00abeb), to(#fff));}
+</style>
+</head>
+<body>
+<div class="clearfix">
+  <div class="container"><span>LEGEND</span></div>
+  <p>-webkit-box-decoration-break:slice</p>
+  <div class="container">
+    <span style="-webkit-box-decoration-break:slice;">ABCDEF<br />GHIJKL<br />MNOPQR<br />STUVWXYZ</span>
+  </div>
+  <p>-webkit-box-decoration-break:clone</p>
+  <div class="container">
+    <span style="-webkit-box-decoration-break:clone;">ABCDEF<br />GHIJKL<br />MNOPQR<br />STUVWXYZ</span>
+  </div>
+</div>
+</body>
+</html>
