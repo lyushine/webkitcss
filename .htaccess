@@ -1,0 +1,4 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^(www\.)?ctrip\.com$
+RewriteRule ^(.*)$ http://wxd.ctrip.com/$1 [R,NC] [F]

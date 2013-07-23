@@ -4,91 +4,486 @@
 <meta charset="UTF-8">
 <title>-webkit-appearance Demo Specification</title>
 <style type="text/css">
-html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, em, button { margin:0; padding:0; }
-body { font:normal 16px Calibri,Tahoma,"Microsoft Yahei",Simsun; }
-ul li, ol li { list-style:none; }
-#display_box { float:left; margin-left: 450px; }
-#adjust_box { width:380px; margin:10px; background-color:#FEE9CC; top:0; bottom:0; overflow-y: scroll ;position: absolute;}
-#display_box { position:relative; width:800px; height:100px; padding:50px 10px; margin-top:10px; font-size:30px; border:10px dashed #CCC; }
-marquee { width:800px; height:100px; }
-input { margin-right:3px; vertical-align:middle; }
-input[type="text"] { margin-top:5px; padding:3px; }
-dl { padding:0 10px; }
-dt { margin-bottom:10px; padding:5px 0; font-size:30px; text-align:center; border-bottom:1px solid #CCC; box-shadow:0 1px 1px #EFEFEF; }
-dd { margin-bottom:20px; }
-dd label { display:block; margin-right:10px; cursor: pointer; margin:8px 0;}
-dd span { display:block; font-size:20px; font-weight:bold; }
-strong { display:block; font-size:16px; font-weight:normal; }
-i { font-style:normal; font-size:20px; font-weight:bold; }
-
+    table{margin:0 auto;}
+    th,td{border:1px solid #ddd; border-collapse:none; border-spacing: 0; padding:4px;}
+    b{color:red;}
 </style>
 </head>
 <body>
-<dl id="adjust_box">
-	<dt>-webkit-appearance</dt>
-	<dd><span>value</span>
-		<label><input type="radio" name="value" value="caps-lock-indicator" />caps-lock-indicator</label>
-		<label><input type="radio" name="value" checked="checked" value="button" />button</label>
-		<label><input type="radio" name="value"  value="button-bevel" />button-bevel</label>
-		<label><input type="radio" name="value"  value="caret" />caret</label>
-		<label><input type="radio"  name="value" value="checkbox" />forwcheckboxards</label>
-		<label><input type="radio"  name="value" value="default-button" />default-button</label>
-		<label><input type="radio"  name="value" value="listbox" />listbox</label>
-		<label><input type="radio"  name="value" value="listitem" />listitem</label>
-		<label><input type="radio"  name="value" value="media-fullscreen-button" />media-fullscreen-button</label>
-		<label><input type="radio"  name="value" value="media-mute-button" />media-mute-button</label>
-		<label><input type="radio"  name="value" value="media-play-button" />media-play-button</label>
-		<label><input type="radio"  name="value" value="media-seek-back-button" />media-seek-back-button</label>
-		<label><input type="radio"  name="value" value="media-seek-forward-button" />media-seek-forward-button</label>
-		<label><input type="radio" name="value"  value="button" />media-slider</label>
-		<label><input type="radio" name="value"  value="button" />media-sliderthumb</label>
-		<label><input type="radio"  name="value" value="button" />menulist</label>
-		<label><input type="radio"  name="value" value="button" />menulist-button</label>
-		<label><input type="radio"  name="value" value="button" />menulist-text</label>
-		<label><input type="radio"  name="value" value="button" />menulist-textfield</label>
-		<label><input type="radio"  name="value" value="button" />none</label>
-		<label><input type="radio"  name="value" value="button" />push-button</label>
-		<label><input type="radio"  name="value" value="button" />radio</label>
-		<label><input type="radio"  name="value" value="button" />searchfield</label>
-		<label><input type="radio"  name="value" value="button" />searchfield-cancel-button</label>
-		<label><input type="radio"  name="value" value="button" />searchfield-decoration</label>
-		<label><input type="radio"  name="value" value="button" />searchfield-results-button</label>
-		<label><input type="radio" value="button" />searchfield-results-decoration</label>
-		<label><input type="radio" name="value"  value="button" />slider-horizontal</label>
-		<label><input type="radio" name="value"  value="button" />slider-vertical</label>
-		<label><input type="radio" name="value"  value="button" />sliderthumb-horizontal</label>
-		<label><input type="radio" name="value"  value="button" />sliderthumb-vertical</label>
-		<label><input type="radio" name="value"  value="button" />square-button</label>
-		<label><input type="radio" name="value"  value="button" />textarea</label>
-		<label><input type="radio" name="value"  value="button" />textfield</label>
-		<label><input type="radio" name="value" value="button" />scrollbarbutton-down</label>
-		<label><input type="radio" name="value"  value="scrollbarbutton-left" />scrollbarbutton-left</label>
-		<label><input type="radio" name="value"  value="scrollbarbutton-right" />scrollbarbutton-right</label>
-		<label><input type="radio" name="value"  value="scrollbarbutton-up" />scrollbarbutton-up</label>
-		<label><input type="radio" name="value"  value="scrollbargripper-horizontal" />scrollbargripper-horizontal</label>
-		<label><input type="radio" name="value"  value="scrollbargripper-vertical" />scrollbargripper-vertical</label>
-		<label><input type="radio" name="value"  value="scrollbarthumb" />scrollbarthumb-horizontal</label>
-		<label><input type="radio" name="value"  value="scrollbarthumb" />scrollbarthumb-vertical</label>
-		<label><input type="radio"  name="value" value="scrollbartrack" />scrollbartrack-horizontal</label>
-		<label><input type="radio" name="value"  value="scrollbartrack" />scrollbartrack-vertical</label>
-	</dd>
-</dl>
-<div id="display_box">
-		<div id="demo" style="-webkit-appearance: button;">Some text</div>
-</div>
-<script type="text/javascript">
-	window.onload = function(){
-		var valueBtns = document.getElementById("adjust_box").getElementsByTagName("input");
-		var show = document.getElementById("demo");
-		for(var i=0; i < valueBtns.length; i++){
-			valueBtns[i].onclick = (function(i){
-				return function(){
-					show.style.webkitAppearance = valueBtns[i].nextSibling.nodeValue;
-					show.style.appearance = valueBtns[i].nextSibling.nodeValue;
-				}
-			})(i);
-		}
-	}
-</script>
+    <table>
+        <thead>
+            <th>取值</th>
+            <th>代码效果</th>
+            <th>介绍</th>
+            <th>chrome</th>
+            <th>safari</th>
+            <th>iOS Safari</th>
+            <th>Android Browser </th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>-webkit-appearance: normal</td>
+                <td>
+                    <span style="-webkit-appearance:normal">SPAN Tag</span>
+                </td>
+                <td>按照元素默认的样式渲染</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: none</td>
+                <td>
+                    <span style="-webkit-appearance:none">SPAN Tag</span>
+                </td>
+                <td>去除系统默认的样式,<b>常用于IOS下移除原生样式</b></td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: button</td>
+                <td>
+                    <span style="-webkit-appearance:button">SPAN Tag</span>
+                </td>
+                <td>渲染成button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: button-bevel</td>
+                <td>
+                    <span style="-webkit-appearance:button-bevel">SPAN Tag</span>
+                </td>
+                <td>渲染成button-bevel的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: caret</td>
+                <td>
+                    <span style="-webkit-appearance:caret">SPAN Tag</span>
+                </td>
+                <td>渲染成caret的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: checkbox</td>
+                <td>
+                    <span style="-webkit-appearance:checkbox">SPAN Tag</span>
+                </td>
+                <td>渲染input:checkbox样式的复选框按钮</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: listbox</td>
+                <td>
+                    <span style="-webkit-appearance:listbox">SPAN Tag</span>
+                </td>
+                <td>渲染为listbox样式的复选框按钮</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: listitem</td>
+                <td>
+                    <span style="-webkit-appearance:listitem">SPAN Tag</span>
+                </td>
+                <td>渲染成listitem的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: media-fullscreen-button</td>
+                <td>
+                    <span style="-webkit-appearance:media-fullscreen-button">SPAN Tag</span>
+                </td>
+                <td>渲染成media-fullscreen-button的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: media-mute-button</td>
+                <td>
+                    <span style="-webkit-appearance:media-mute-button">SPAN Tag</span>
+                </td>
+                <td>渲染成media-mute-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: media-seek-back-button</td>
+                <td>
+                    <span style="-webkit-appearance:media-seek-back-button">SPAN Tag</span>
+                </td>
+                <td>渲染成media-seek-back-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: media-seek-forward-button</td>
+                <td>
+                    <span style="-webkit-appearance:media-seek-forward-button">SPAN Tag</span>
+                </td>
+                <td>渲染成media-seek-forward-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: media-slider</td>
+                <td>
+                    <span style="-webkit-appearance:media-slider">SPAN Tag</span>
+                </td>
+                <td>渲染成media-slider的风格</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance: media-sliderthumb</td>
+                <td>
+                    <span style="-webkit-appearance:media-sliderthumb">SPAN Tag</span>
+                </td>
+                <td>渲染成media-sliderthumb的风格</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: menulist</td>
+                <td>
+                    <span style="-webkit-appearance:menulist">SPAN Tag</span>
+                </td>
+                <td>渲染成menulist的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: menulist-button</td>
+                <td>
+                    <span style="-webkit-appearance:menulist-button">SPAN Tag</span>
+                </td>
+                <td>渲染成menulist-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: menulist-text</td>
+                <td>
+                    <span style="-webkit-appearance:menulist-text">SPAN Tag</span>
+                </td>
+                <td>渲染成menulist-text的风格</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: menulist-textfield</td>
+                <td>
+                    <span style="-webkit-appearance:menulist-textfield">SPAN Tag</span>
+                </td>
+                <td>渲染成menulist-textfield的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: push-button</td>
+                <td>
+                    <span style="-webkit-appearance:push-button">SPAN Tag</span>
+                </td>
+                <td>渲染成push-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: radio</td>
+                <td>
+                    <span style="-webkit-appearance:radio">SPAN Tag</span>
+                </td>
+                <td>渲染成radio的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance: searchfield</td>
+                <td>
+                    <span style="-webkit-appearance:searchfield">SPAN Tag</span>
+                </td>
+                <td>渲染成searchfield的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance: searchfield-cancel-button</td>
+                <td>
+                    <span style="-webkit-appearance:searchfield-cancel-button">SPAN Tag</span>
+                </td>
+                <td>渲染成searchfield-cancel-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: searchfield-decoration</td>
+                <td>
+                    <span style="-webkit-appearance:searchfield-decoration">SPAN Tag</span>
+                </td>
+                <td>渲染成searchfield-decoration的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance: searchfield-results-button</td>
+                <td>
+                    <span style="-webkit-appearance:searchfield-results-button">SPAN Tag</span>
+                </td>
+                <td>渲染成searchfield-results-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: searchfield-results-decoration</td>
+                <td>
+                    <span style="-webkit-appearance:searchfield-results-button">SPAN Tag</span>
+                </td>
+                <td>渲染成searchfield-results-decoration的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance: slider-horizontal</td>
+                <td>
+                    <span style="-webkit-appearance:slider-horizontal">SPAN Tag</span>
+                </td>
+                <td>渲染成slider-horizontal的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  slider-vertical</td>
+                <td>
+                    <span style="-webkit-appearance: slider-vertical">SPAN Tag</span>
+                </td>
+                <td>渲染成slider-horizontal的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  sliderthumb-horizontal</td>
+                <td>
+                    <span style="-webkit-appearance: sliderthumb-horizontal">SPAN Tag</span>
+                </td>
+                <td>渲染成sliderthumb-horizontal的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  sliderthumb-vertical</td>
+                <td>
+                    <span style="-webkit-appearance:sliderthumb-vertical">SPAN Tag</span>
+                </td>
+                <td>渲染成sliderthumb-vertical的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  square-button</td>
+                <td>
+                    <span style="-webkit-appearance:square-button">SPAN Tag</span>
+                </td>
+                <td>渲染成square-button的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance:  textarea</td>
+                <td>
+                    <span style="-webkit-appearance:textarea">SPAN Tag</span>
+                </td>
+                <td>渲染成textarea的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance:  textfield</td>
+                <td>
+                    <span style="-webkit-appearance:textarea">SPAN Tag</span>
+                </td>
+                <td>渲染成textfield的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  textarea</td>
+                <td>
+                    <span style="-webkit-appearance:textarea">SPAN Tag</span>
+                </td>
+                <td>渲染成textarea的风格</td>
+                <td>支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  scrollbarbutton-down</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbarbutton-down">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbarbutton-down的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  scrollbarbutton-left</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbarbutton-left">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbarbutton-left的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  scrollbarbutton-right</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbarbutton-right">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbarbutton-right的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  scrollbargripper-horizontal</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbargripper-horizontal">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbargripper-horizontal的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  scrollbargripper-vertical</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbargripper-vertical">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbargripper-vertical的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:  scrollbarthumb-horizontal</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbarthumb-horizontal">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbarthumb-horizontal的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:scrollbarthumb-vertical</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbarthumb-vertical">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbarthumb-vertical的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+            <tr>
+                <td>-webkit-appearance:scrollbartrack-horizontal</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbartrack-horizontal">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbartrack-horizontal的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+             <tr>
+                <td>-webkit-appearance:scrollbartrack-vertical</td>
+                <td>
+                    <span style="-webkit-appearance:scrollbartrack-vertical">SPAN Tag</span>
+                </td>
+                <td>渲染成scrollbartrack-horizontal的风格</td>
+                <td>不支持</td>
+                <td>支持</td>
+                <td>不支持</td>
+                <td>不支持</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
