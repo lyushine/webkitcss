@@ -1,5 +1,4 @@
-webkitcss
-=========
+# webkitcss
 
 项目展示地址：http://ued.ctrip.com/blog/wp-content/webkitcss/
 
@@ -8,16 +7,9 @@ webkitcss
 之前为了多人协作及前端开发者编辑及合作方便，每个属性介绍和DEMO均采用独立HTML文件。
 
 在win系统/mac系统/ios上的支持情况
-                    </li>
-                </ul>
-            </li>
-            <li>
-                罗列每个
-                <strong>
-                    -webkit-
-                </strong>
-                前缀的CSS属性的内容
-            </li>
+
+* 罗列每个**-webkit-**前缀的CSS属性的内容
+
             <li>
                 <ul>
                     <li>
